@@ -14,6 +14,8 @@ Hope it helps! Good luck with your research!
 # USAGE
 In order to use this script, the user must download the following databases: prosite.dat and prosite.doc, and save them in the discover_antartica package.
 
+Databases can be downloaded here: https://mega.nz/file/5iJygYQC
+
     discover_antartica/main.py [-h] -q QUERY_FILE -s SUBJECT_FILE [-c COVERAGE] [-i IDENTITY] [-e EVALUE] [-g] [-d] [-v]
   
     -h, --help              show this help message and exit
