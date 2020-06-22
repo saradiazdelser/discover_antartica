@@ -12,6 +12,8 @@ Here's what it'll do:
 Hope it helps! Good luck with your research!
 
 # USAGE
+main2.py [-h] -q [QUERY FILE] -s [SUBJECT FILE] [-c COVERAGE] [-i IDENTITY] [-e EVALUE] [-g] [-d] [-v]
+
 The program will run a analysis per query file. Thus, if one of the query files is a multifasta, all the sequences will be analyzed together. 
 
 #  WARNINGS! 
