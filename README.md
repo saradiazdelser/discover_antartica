@@ -1,4 +1,4 @@
-# Discovering Antartica 2.0
+# Discover Antartica 2.0
 
 This wonderful, looong program has the ability do lots of interesting things, including giving the coder (me!) grey hair.
 Here's what it'll do:
@@ -12,7 +12,24 @@ Here's what it'll do:
 Hope it helps! Good luck with your research!
 
 # USAGE
-main2.py [-h] -q [QUERY FILE] -s [SUBJECT FILE] [-c COVERAGE] [-i IDENTITY] [-e EVALUE] [-g] [-d] [-v]
+  main_script.py [-h] -q [QUERY FILE] -s [SUBJECT FILE] [-c COVERAGE] [-i IDENTITY] [-e EVALUE] [-g] [-d] [-v]
+  
+  Discovering Antartica 2.0
+
+-h, --help            show this help message and exit
+  -q --query QUERY  [QUERY FILE]
+                        query proteins files or directory (sequences must be single fasta)
+  -s --subject SUBJECT [SUBJECT FILE]
+                        subject proteins files or directory (sequences can be multifasta or genbank)
+  -c COVERAGE, --coverage COVERAGE
+                        coverage cut-off value
+  -i IDENTITY, --identity IDENTITY
+                        identity cut-off value
+  -e EVALUE, --evalue EVALUE
+                        evalue threshold
+  -g, --graphics        add graphics generated with matplotlib
+  -d, --documentation   adds prodoc documentation
+  -v, --version         prints out version
 
 The program will run a analysis per query file. Thus, if one of the query files is a multifasta, all the sequences will be analyzed together. 
 
