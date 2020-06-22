@@ -20,9 +20,9 @@ Databases can be downloaded here: https://mega.nz/file/5iJygYQC
   
     -h, --help              show this help message and exit
   
-    -q --query QUERY_FILE   query proteins files or directory (sequences must be single fasta)
+    -q --query QUERY_FILE   query proteins file or directory (sequences must be single fasta)
     
-    -s --subject SUBJ_FILE  subject proteins files or directory (sequences can be multifasta or genbank)
+    -s --subject SUBJ_FILE  subject proteins file or directory (sequences can be multifasta or genbank)
     
     -c --coverage COVERAGE  coverage cut-off value
     
