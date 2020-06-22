@@ -34,7 +34,7 @@ Databases can be downloaded here: https://mega.nz/file/5iJygYQC
     -d, --documentation     adds prodoc documentation
     -v, --version           prints out version
 
-The program will run a analysis per query file. Thus, if one of the query files is a multifasta, all the sequences will be analyzed together. 
+The program will run one analysis per query file. If there are multiple query files, please input them as a single directory Thus, if one of the query files is a multifasta, all the sequences will be analyzed together. 
 
 #  REQUIREMENTS 
 This program requires *Python 3* to work——hence, the '.py' extension. If you don't have Python 3, please crawl out of whichever rock you've been living under and install it.
