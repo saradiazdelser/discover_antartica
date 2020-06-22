@@ -12,7 +12,9 @@ Here's what it'll do:
 Hope it helps! Good luck with your research!
 
 # USAGE
-    main_script.py [-h] -q QUERY_FILE] -s SUBJECT_FILE] [-c COVERAGE] [-i IDENTITY] [-e EVALUE] [-g] [-d] [-v]
+In order to use this script, the user must download the following databases: prosite.dat and prosite.doc, and save them in the discover_antartica package.
+
+    discover_antartica/main.py [-h] -q QUERY_FILE -s SUBJECT_FILE [-c COVERAGE] [-i IDENTITY] [-e EVALUE] [-g] [-d] [-v]
   
     -h, --help              show this help message and exit
   
@@ -32,7 +34,7 @@ Hope it helps! Good luck with your research!
 
 The program will run a analysis per query file. Thus, if one of the query files is a multifasta, all the sequences will be analyzed together. 
 
-#  WARNINGS! 
+#  REQUIREMENTS 
 This program requires *Python 3* to work——hence, the '.py' extension. If you don't have Python 3, please crawl out of whichever rock you've been living under and install it.
 
 This program requires *Biopython* to work. If you don't have Biopython installed, what are you waiting for? A sign from God? This is it.
