@@ -11,6 +11,9 @@ Here's what it'll do:
 
 Hope it helps! Good luck with your research!
 
+# USAGE
+The program will run a analysis per query file. Thus, if one of the query files is a multifasta, all the sequences will be analyzed together. 
+
 #  WARNINGS! 
 This program requires *Python 3* to work——hence, the '.py' extension. If you don't have Python 3, please crawl out of whichever rock you've been living under and install it.
 
