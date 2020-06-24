@@ -5,15 +5,17 @@
 # --------------------------------------------------------------
 
 # ------------------------- WARNINGS!---------------------------
-# This program requires Python 3 to work——hence, the '.py' extension. If you don't have Python 3, 
-#+ please crawl out of whichever rock you've been living under and install it.
+# This program requires Python 3 to work——hence, the '.py' extension. 
+# If you don't have Python 3, please crawl out of whichever rock you've 
+#+been living under and install it.
 
-# This program requires Biopython to work. If you don't have Biopython installed, 
-#+what are you waiting for? A sign from God? This is it.
+# This program requires Biopython to work. If you don't have Biopython 
+#+installed, what are you waiting for? A sign from God? This is it.
 
-# This program requires BLAST to work. If you don't have BLAST installed locally, 
-# please reconsider your life choices and then download it from the NCBI's website. 
-# Since I'm nice, here's a link: https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/).
+# This program requires BLAST to work. If you don't have BLAST installed 
+#+locally, please reconsider your life choices and then download it from 
+#+the NCBI's website. Since I'm nice, here's a link: 
+#+https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/).
 
 
 # -------------------------- MODULES ---------------------------
@@ -24,9 +26,10 @@ import csv
 
 # ------------------------- FUNCTIONS --------------------------
 
-# This one does the BLASTin'! Then it filters the results according to Identity and Coverage values and 
-#+generates files with the results in tsv and fasta format. 
-# It returns a dictionary with the fasta sequences and ID
+# This one does the BLASTin'! Then it filters the results according to 
+#+Identity and Coverage values and generates files with the results 
+#+in tsv and fasta format. It returns a dictionary with the fasta 
+#+sequences and ID
 
 def to_blast_or_not_to_blast(query_file, db_file, evalue_co, raw_results_file,
     filtered_results_file, fasta_results_file, iden_co, cov_co, query_dictionary):
@@ -93,7 +96,7 @@ def to_blast_or_not_to_blast(query_file, db_file, evalue_co, raw_results_file,
     \nHits: {hit_count}''')
 
     if hit_count == 0:
-        print('There are no hits.')
+        print('\n\033There are no hits.')
         sys.exit(ZERO)
 
     # Return dictionary to use later

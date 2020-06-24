@@ -6,11 +6,12 @@
 # --------------------------------------------------------------
 
 # ------------------------- WARNINGS!---------------------------
-# This script requires Python 3 to work——hence, the '.py' extension. If you don't have Python 3, 
-#+ please crawl out of whichever rock you've been living under and install it.
+# This script requires Python 3 to work——hence, the '.py' extension. 
+# If you don't have Python 3,please crawl out of whichever rock you've 
+#+been living under and install it.
 
-# This script also requires Biopython to work. If you don't have Biopython installed, 
-#+what are you waiting for? A sign from God? This is it.
+# This script also requires Biopython to work. If you don't have Biopython  
+#+installed, what are you waiting for? A sign from God? This is it.
 
 # -------------------------- MODULES ---------------------------
 import re
@@ -63,8 +64,9 @@ def its_a_wonderful_database(text_file, DOC, dictionary,
                             else: 
                                 doc='N/A'
 
-                            print(f'\n{key}\t{record.name}\t{len(find)}\t{record.accession}\t{record.description}\t{record.pattern}\t{doc}\
-                            ',file=output_file)
+                            print(f'\n{key}\t{record.name}\t{len(find)}\t'+\
+                                f'{record.accession}\t{record.description}'+\
+                                f'\t{record.pattern}\t{doc}',file=output_file)
 
                 # Let the user know how many domains were found
                 print(f'{key} has {str(domains)} known domains.')
