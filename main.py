@@ -264,15 +264,15 @@ def i_am_iron_main():
         print("\n------------------------------------\
             \nDomain analysis...\
             \n------------------------------------ \n")
-        try:
-            dom.its_a_wonderful_database(
-                dictionary=f_dictionary,
-                text_file=projectname+'_domains.txt',
-                DOC=args.documentation,
-                prosite_dat_file='discover_antartica/prosite.dat',
-                prosite_doc_file='discover_antartica/prosite.doc'
-                )
-        except:
+        #try:
+        dom.its_a_wonderful_database(
+            dictionary=f_dictionary,
+            text_file=projectname+'_domains.txt',
+            DOC=args.documentation,
+            prosite_dat_file='discover_antartica/prosite.dat',
+            prosite_doc_file='discover_antartica/prosite.doc'
+            )
+        #except:
             print ("\033[1;97;101mERROR:\033[0m Something wrong while analyzing domains!")
             sys.exit(2)
 
