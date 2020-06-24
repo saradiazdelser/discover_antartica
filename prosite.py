@@ -63,8 +63,7 @@ def its_a_wonderful_database(text_file, DOC, dictionary,
                             else: 
                                 doc='N/A'
 
-                            print(f'\n{key}\t{record.name}\t{len(find)}\t{record.accession}\
-                            \t{record.description}\t{record.pattern}\t{doc}\
+                            print(f'\n{key}\t{record.name}\t{len(find)}\t{record.accession}\t{record.description}\t{record.pattern}\t{doc}\
                             ',file=output_file)
 
                 # Let the user know how many domains were found
