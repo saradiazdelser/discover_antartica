@@ -273,8 +273,8 @@ def i_am_iron_main():
             prosite_doc_file='discover_antartica/prosite.doc'
             )
         #except:
-            print ("\033[1;97;101mERROR:\033[0m Something wrong while analyzing domains!")
-            sys.exit(2)
+        print ("\033[1;97;101mERROR:\033[0m Something wrong while analyzing domains!")
+        sys.exit(2)
 
     else:
         print("\033[1;97;101mERROR:\033[0m Can't run the program with a non-valid query file!")
