@@ -54,13 +54,13 @@ from pathlib import Path
 import formatt as ftt
 
 # Sequence Alignment Module (2/5)
-import align as al
+import blast as al
 
 # Tree-Making Module (3/5)
-import tree as tr
+import muscle as tr
 
 # Domain Finder Module (4/5)
-import domains as dom
+import prosite as dom
 
 # Graphs Module (5/5)
 import graph as gph 
