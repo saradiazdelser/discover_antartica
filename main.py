@@ -25,21 +25,24 @@
 # Hope it helps! Good luck with your research!
 
 # ------------------------- WARNING! ---------------------------
-# This program requires Python 3 to work--hence, the '.py' extension. If you don't have Python 3, 
-#+ please crawl out of whichever rock you've been living under and install it.
+# This program requires Python 3 to work--hence, the '.py' extension. 
+#+If you don't have Python 3, please crawl out of whichever rock 
+#+you've been living under and install it.
 
-# This program requires Biopython to work. If you don't have Biopython installed, 
-#+what are you waiting for? A sign from God? This is it.
+# This program requires Biopython to work. If you don't have Biopython 
+#+installed, what are you waiting for? A sign from God? This is it.
 
 # This program requires BLAST to work. If you don't have BLAST installed locally, 
-# please reconsider your life choices and then download it from the NCBI's website. 
-# Since I'm nice, here's a link: https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/).
+#+please reconsider your life choices and then download it from the NCBI's website. 
+#+Since I'm nice, here's a link: 
+# https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/).
 
 # This program requires MUSCLE to work. If you don't have MUSCLE installed, 
-# you should check out how to do it here: https://www.drive5.com/muscle/downloads.htm  
+#+you should check out how to do it here:
+# https://www.drive5.com/muscle/downloads.htm  
 
 # This program requires Matplotlib to work. If you don't have it installed, 
-#+ go do that now, it'll come in handy.
+#+go do that now, it'll come in handy.
 
 
 # -------------------------- MODULES ---------------------------
@@ -173,18 +176,18 @@ def i_am_iron_main():
         print("\n------------------------------------\
             \nDomain analysis...\
             \n------------------------------------ \n")
-        try:
-            dom.its_a_wonderful_database(
-                dictionary=f_dictionary,
-                text_file=projectname+'_domains.tsv',
-                DOC=args.documentation,
-                prosite_dat_file='discover_antartica/prosite.dat',
-                prosite_doc_file='discover_antartica/prosite.doc'
-                )
-        except:
-            print ('\033[1;97;101mERROR:\033[0m Something went wrong '+\
-                'while analyzing domains!')
-            sys.exit(2)
+    #try:
+        dom.its_a_wonderful_database(
+            dictionary=f_dictionary,
+            text_file=projectname+'_domains.tsv',
+            DOC=args.documentation,
+            prosite_dat_file='discover_antartica/prosite.dat',
+            prosite_doc_file='discover_antartica/prosite.doc'
+            )
+    #except:
+        print ('\033[1;97;101mERROR:\033[0m Something went wrong '+\
+            'while analyzing domains!')
+        sys.exit(2)
 
     else:
         print('\033[1;97;101mERROR:\033[0m Can\'t run the program with '+\
