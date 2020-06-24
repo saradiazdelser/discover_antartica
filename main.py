@@ -32,13 +32,13 @@
 # This program requires Biopython to work. If you don't have Biopython 
 #+installed, what are you waiting for? A sign from God? This is it.
 
-# This program requires BLAST to work. If you don't have BLAST installed locally, 
-#+please reconsider your life choices and then download it from the NCBI's website. 
-#+Since I'm nice, here's a link: 
+# This program requires BLAST to work. If you don't have BLAST installed 
+#+locally, please reconsider your life choices and then download it 
+#+from the NCBI's website. Since I'm nice, here's a link: 
 # https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/).
 
 # This program requires MUSCLE to work. If you don't have MUSCLE installed, 
-#+you should check out how to do it here:
+#+you should check out how to do it here: 
 # https://www.drive5.com/muscle/downloads.htm  
 
 # This program requires Matplotlib to work. If you don't have it installed, 
@@ -176,18 +176,18 @@ def i_am_iron_main():
         print("\n------------------------------------\
             \nDomain analysis...\
             \n------------------------------------ \n")
-    #try:
-        dom.its_a_wonderful_database(
-            dictionary=f_dictionary,
-            text_file=projectname+'_domains.tsv',
-            DOC=args.documentation,
-            prosite_dat_file='discover_antartica/prosite.dat',
-            prosite_doc_file='discover_antartica/prosite.doc'
-            )
-    #except:
-        print ('\033[1;97;101mERROR:\033[0m Something went wrong '+\
-            'while analyzing domains!')
-        sys.exit(2)
+        try:
+            dom.its_a_wonderful_database(
+                dictionary=f_dictionary,
+                text_file=projectname+'_domains.tsv',
+                DOC=args.documentation,
+                prosite_dat_file='./prosite.dat',
+                prosite_doc_file='./prosite.doc'
+                )
+        except:
+            print ('\033[1;97;101mERROR:\033[0m Something went wrong '+\
+                'while analyzing domains!')
+            sys.exit(2)
 
     else:
         print('\033[1;97;101mERROR:\033[0m Can\'t run the program with '+\
@@ -207,27 +207,26 @@ else:
 
 # Create argument parser
 ap = argparse.ArgumentParser(
+    # Help header
     description='Discover Antartica 2.0',
+    # Help footer
     epilog="Hope that helped! Good luck with your research!")
 
+# Version
 ap.version = '\033[1;92mVersion 2.0\033[0m'
 
 # Add the arguments to the parser
 ap.add_argument("-q", "--query", 
                 action="append",
                 required=True,
-                help='query proteins files or directory '+\
-                '(\033[1;97mSequences must be single fasta, '+\
-                'if they are to be analysed independently.'+\
-                'There will be one (1) phylogenetic analysis '+\
-                'per query FILE.\033[0m)')
+                help='query proteins (FASTA) file or directory '+\
+                '(\033[1;97mThere will be one (1) phylogenetic '+\
+                'analysis per query FILE.\033[0m)')
 
 ap.add_argument("-s", "--subject", 
                 action="append",
                 required=True,
-                help='subject proteins files or directory ' +\
-                '(\033[1;97mSequences can be either multifastas '+\
-                'or genbank assemblies.\033[0m)')
+                help='subject proteins (GENBANK or FASTA) file or directory')
 
 ap.add_argument("-c", "--coverage", 
                 type=float, 
@@ -248,7 +247,7 @@ ap.add_argument("-e", "--evalue",
 
 ap.add_argument("-g", "--graphics",
                 action='store_true',
-                help="adds graphics generated with matplotlib")
+                help="generates graphics with matplotlib")
 
 ap.add_argument("-d", "--documentation",
                 action='store_true',
@@ -298,12 +297,18 @@ else:
 
 # --------------------- MAIN SCRIPT -----------------------
 
-# One 'project' per query
-try: 
-    print('\n\033[1;91mWARNING\033[0m: \nKeep in mind there will be 1 '+ \
+# Warning message
+print('\n\033[1;91mWARNING\033[0m: \nKeep in mind there will be 1 '+ \
         'phylogenetic analysis per query FILE. If you wish to analyse '+ \
-        'multiple queries separately, please input them in separate files.\n')
+        'multiple queries separately, please input them as separate files.' +\
+        '\nThis program assumes the following files: '+\
+        '\033[2mprosite.dat\033[0m and \033[2mprosite.doc\033[0m are in '+\
+        'the working directory')
+input('\nPress enter to begin analysis...\n')
 
+# Execute script
+try: 
+    # One 'project' per query
     for query in query_directory:
         i_am_iron_main()
         

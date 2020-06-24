@@ -72,7 +72,7 @@ def to_blast_or_not_to_blast(query_file, db_file, evalue_co, raw_results_file,
                     hit_count+=1
 
                     # Add sequence to dictionary (will be usefull later, promise)
-                    kill_the_spare[row[1]+'_query:'+row[0]]=row[5]
+                    kill_the_spare[row[1]+'('+row[0]+')']=row[5]
 
         # Add query sequence to fasta file
         with open(fasta_results_file, 'a') as fasta:

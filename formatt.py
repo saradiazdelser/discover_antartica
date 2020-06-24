@@ -5,11 +5,12 @@
 # --------------------------------------------------------------
 
 # ------------------------- WARNINGS!---------------------------
-# This program requires Python 3 to work——hence, the '.py' extension. If you don't have Python 3, 
-#+ please crawl out of whichever rock you've been living under and install it.
+# This program requires Python 3 to work——hence, the '.py' extension.
+#+If you don't have Python 3, please crawl out of whichever rock 
+#+you've been living under and install it.
 
-# This program requires Biopython to work. If you don't have Biopython installed, 
-#+what are you waiting for? A sign from God? This is it.
+# This program requires Biopython to work. If you don't have Biopython  
+#+installed, what are you waiting for? A sign from God? This is it.
 
 # -------------------------- MODULES ---------------------------
 
@@ -36,7 +37,8 @@ def the_format_is_strong_in_this_one(mystery_file):
             elif re.search('aa', line):
                 return 'GP'
         else:
-            print(f'Good Sir, {mystery_file} is not a valid format!')
+            print(f'\033[1;97;107mERROR:\033[0m {mystery_file}' +\
+            	'is not in a valid format!')
 
 
 # This one converts the genbank database into a multifasta
@@ -51,13 +53,13 @@ def in_the_begining_there_was_genbank(gb_file, fasta_file):
 		    for f in records.features :
 		        if (f.type=="CDS"):
 		        	try:
-		        		output_file.write(f">{f.qualifiers['locus_tag'][0]}_{records.name}\
-		        			\n{f.qualifiers['translation'][0]}\n")
+		        		output_file.write(f">{f.qualifiers['locus_tag'][0]}"+\
+		        			f"_{records.name}\n{f.qualifiers['translation'][0]}\n")
 		        	except KeyError as e:
 		        		continue
 
 
-	print('Success! %s added to the multifasta database' % gb_file)
+	print(f"Success! {gb_file} added to the multifasta database")
 
 
 # This one converts the genprot database into a multifasta
@@ -70,7 +72,7 @@ def in_the_begining_there_was_genprot(gp_file, fasta_file):
 		# Create a fasta file
 		sequences_fasta = SeqIO.write(sequences_gp, output_file, "fasta")
 
-	print('Success! %s added to the multifasta database' % gp_file)
+	print(f"Success! {gp_file} added to the multifasta database")
 
 
 # This one converts the genprot database into a multifasta
