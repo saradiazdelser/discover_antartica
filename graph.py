@@ -24,42 +24,49 @@ from Bio import Phylo
 
 # ------------------------- FUNCTIONS --------------------------
 
-def the_perks_of_being_a_graphic(file='data/filtered_results_file.tsv'):
-    # Fixing random state for reproducibility
-    np.random.seed(19680801)
-
-    coverage=[]
-    sequences=[]
-    identity=[]
+def the_perks_of_being_a_graphic(file):
 
     with open(file, 'r') as f:
 
-        plots= csv.reader(f, delimiter='\t')
-        next(plots)
+        cov=[]
+        seq=[]
+        ident=[]
 
-        for row in plots:
-            coverage.append(float(row[2]))
-            sequences.append(str(row[1]))
-            identity.append(float(row[3]))
+        blast_results= csv.reader(f, delimiter='\t')
+        next(blast_results)
 
-    plt.rcdefaults()
-    fig, ax = plt.subplots()
+        for row in blast_results:
+            cov.append(float(row[2]))
+            seq.append(str(row[1]))
+            ident.append(float(row[3]))
 
-    mask1 = (identity < 0.5)
-    mask2 = (identity >= 0.5)
+    N=len(cov)
+    ind = np.arange(N)
+    fig = plt.figure()
+    ax = fig.add_axes([0,0,1,1])
+    for i in range(N):
+        if ident[i]<43:
+            ax.barh(seq[i], cov[i], color='y')
+            ax.set_yticklabels(seq[i], minor=False)
+        elif ident[i]<46:
+            ax.barh(seq[i], cov[i], color='m')
+            ax.set_yticklabels(seq[i], minor=False)
+        else:
+            ax.barh(seq[i], cov[i], color='r')
+            ax.set_yticklabels(seq[i], minor=False)
+    
+    # Show sequences names
+    
 
-    # y_value represents bar width
-    y_pos = np.arange(len(sequences))
+    # Create legend
+    ax.legend(labels=['I>80', '40<I<80', 'I<40'])
 
-    ax.barh(y_pos[mask1], coverage[mask1], identity[mask1],  align='center', color='red')
-    ax.barh(y_pos[mask2], coverage[mask2], identity[mask2], align='center', color='pink')
+    # Title axes and figure
+    ax.set_xlabel('Sequences')
+    ax.set_ylabel('Coverage')
+    ax.set_title('Bar Plot of BLAST results')
 
-    ax.set_yticks(y_pos)
-    ax.set_yticklabels(sequences)
-    ax.invert_yaxis()  # labels read top-to-bottom
-    ax.set_xlabel('coverage')
-    ax.set_title('BLAST results')
-
+    # Show
     plt.show()
 
 
