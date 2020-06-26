@@ -16,13 +16,13 @@ In order to use this script, the user must download the following databases: pro
 
 Databases can be downloaded here: https://mega.nz/file/5iJygYQC#EuUTz_SInscP0aga9-u853sUQhV3usdE4rH0kgbkrbk
 
-    discover_antartica/main.py [-h] -q QUERY_FILE -s SUBJECT_FILE [-c COVERAGE] [-i IDENTITY] [-e EVALUE] [-g] [-d] [-v]
+    main.py [-h] -q QUERY_FILE -s SUBJECT_FILE [-c COVERAGE] [-i IDENTITY] [-e EVALUE] [-g] [-d] [-v]
   
     -h, --help              show this help message and exit
   
-    -q --query QUERY_FILE   query proteins file or directory (sequences must be single fasta)
+    -q --query QUERY_FILE   query proteins FASTA file or directory (There will be one (1) phylogenetic analysis per query FILE)
     
-    -s --subject SUBJ_FILE  subject proteins file or directory (sequences can be multifasta or genbank)
+    -s --subject SUBJ_FILE  subject proteins GENBANK or FASTA file or directory
     
     -c --coverage COVERAGE  coverage cut-off value
     
@@ -30,7 +30,7 @@ Databases can be downloaded here: https://mega.nz/file/5iJygYQC#EuUTz_SInscP0aga
     
     -e --evalue EVALUE      evalue threshold
     
-    -g, --graphics          add graphics generated with matplotlib
+    -g, --graphics          generates graphics with matplotlib
     -d, --documentation     adds prodoc documentation
     -v, --version           prints out version
 
