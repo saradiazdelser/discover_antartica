@@ -77,7 +77,7 @@ def i_am_iron_main():
     global query
     query = str(query).strip('\'[]\'')
     print(f"\n------------------------------------\
-            \nQUERY: \033[1;96m{Path(query).stem}\033[0m \
+            \n\033[1;30;105mQUERY: {Path(query).stem}\033[0m \
             \n------------------------------------ \n")
 
     # Make sure it's a fasta file
@@ -117,7 +117,7 @@ def i_am_iron_main():
         # 3. BLAST against that database:
         # Dictionary has all the results fasta sequences 
         print("\n------------------------------------\
-            \nBLAST analysis...\
+            \n\033[1;30;106mBLAST analysis...\033[0m\
             \n------------------------------------ \n")
         try: 
             f_dictionary=al.to_blast_or_not_to_blast(
@@ -142,16 +142,16 @@ def i_am_iron_main():
         
         # Make sure an exception is not raised just because there are no hits.
         except SystemExit as e:
-            if e.code != 'ZERO':
+            if e.code != 666:
                 print ('\033[1;97;107mERROR:\033[0m Something went '+\
                     'wrong while BLASTin\'')
                 sys.exit(2)
             else:
-                sys.exit(ZERO)
+                sys.exit(666)
 
         # 4. Make a tree with MUSCLE
         print("\n------------------------------------\
-            \nPhylogenetic analysis...\
+            \n\033[1;30;106mPhylogenetic analysis...\033[0m\
             \n------------------------------------ ")
         try:
             tr.run_muscle_run(
@@ -174,12 +174,12 @@ def i_am_iron_main():
     
         # 5. Look for domains in PROSITE database
         print("\n------------------------------------\
-            \nDomain analysis...\
+            \n\033[1;30;106mDomain analysis...\033[0m\
             \n------------------------------------ \n")
         try:
             dom.its_a_wonderful_database(
                 dictionary=f_dictionary,
-                text_file=projectname+'_domains.tsv',
+                text_file=projectname+'_domains.txt',
                 DOC=args.documentation,
                 prosite_dat_file='./prosite.dat',
                 prosite_doc_file='./prosite.doc'
@@ -301,10 +301,10 @@ else:
 print('\n\033[1;91mWARNING\033[0m: \nKeep in mind there will be 1 '+ \
         'phylogenetic analysis per query FILE. If you wish to analyse '+ \
         'multiple queries separately, please input them as separate files.' +\
-        '\nThis program assumes the following files: '+\
-        '\033[2mprosite.dat\033[0m and \033[2mprosite.doc\033[0m are in '+\
+        '\n\nThis program assumes the following files: '+\
+        '\033[91mprosite.dat\033[0m and \033[91mprosite.doc\033[0m are in '+\
         'the working directory')
-input('\nPress enter to begin analysis...\n')
+input('\n\033[1;30;103mPress enter to begin analysis...\033[0m\n')
 
 # Execute script
 try: 
@@ -313,8 +313,9 @@ try:
         i_am_iron_main()
         
 except SystemExit as e:
-    if e.code != 'ZERO':
-        print('\033[1;97;101mERROR:\033[0m Something went terribly wrong.')
+    if e.code != 666:
+        print('\033[1;97;101mERROR:\033[0m Something went terribly wrong.'+\
+            'Try runing \033[91mmain.py --help\033[0m')
         sys.exit(2)
     else:
         os._exit(0)

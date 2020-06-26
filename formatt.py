@@ -49,10 +49,11 @@ def in_the_begining_there_was_genbank(gb_file, fasta_file):
 
 		# Read the genbank file
 		for records in SeqIO.parse(input_file, "genbank"):
-			# in
+			# CDC = protein sequence
 		    for f in records.features :
 		        if (f.type=="CDS"):
 		        	try:
+		        		# Save into output file
 		        		output_file.write(f">{f.qualifiers['locus_tag'][0]}"+\
 		        			f"_{records.name}\n{f.qualifiers['translation'][0]}\n")
 		        	except KeyError as e:

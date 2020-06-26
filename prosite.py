@@ -1,5 +1,6 @@
 
 #!/usr/bin python3
+# -*- coding: utf-8 -*-
 
 # --------------------------------------------------------------
 # Domain Finder Module (4/5)
@@ -28,8 +29,6 @@ def its_a_wonderful_database(text_file, DOC, dictionary,
     
     # Open output file
     with open(text_file,'a') as output_file:
-        print(f'\nSequenceID\tDomain\tInstances\tAccession\tDescription\
-            \tPattern\tDocumentation',file=output_file)
 
         # Import fasta dictionary
         for key,value in dictionary.items():
@@ -64,9 +63,14 @@ def its_a_wonderful_database(text_file, DOC, dictionary,
                             else: 
                                 doc='N/A'
 
-                            print(f'\n{key}\t{record.name}\t{len(find)}\t'+\
-                                f'{record.accession}\t{record.description}'+\
-                                f'\t{record.pattern}\t{doc}',file=output_file)
+                            print(f'\nSequenceID: {key}'+\
+                                f'\nDomain: {record.name}'+\
+                                f'\nInstances: {len(find)}'+\
+                                f'\nAccession: {record.accession}'+\
+                                f'\nDescription: {record.description}'+\
+                                f'\nPattern: {record.pattern}'+\
+                                f'\nDocumentation: {doc}', \
+                                file=output_file)
 
                 # Let the user know how many domains were found
                 print(f'{key} has {str(domains)} known domains.')

@@ -96,8 +96,8 @@ def to_blast_or_not_to_blast(query_file, db_file, evalue_co, raw_results_file,
     \nHits: {hit_count}''')
 
     if hit_count == 0:
-        print('\n\033There are no hits.')
-        sys.exit(ZERO)
+        print('\n\033[1;30;103mThere are no hits. Try again with different cut-off values.\033[0m\n')
+        sys.exit(666)
 
     # Return dictionary to use later
     return kill_the_spare
